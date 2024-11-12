@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../drawer/drawer.dart';
+
 class Rowcolumns extends StatelessWidget {
   const Rowcolumns({super.key});
 
@@ -11,6 +13,7 @@ class Rowcolumns extends StatelessWidget {
           child: Text('Ejemplo de filas y columnas anidadas'),
         ),
       ),
+       drawer: const MyDrawer(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [

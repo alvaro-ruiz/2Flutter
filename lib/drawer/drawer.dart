@@ -1,3 +1,6 @@
+import 'package:ejerciciosflutter/screens/anidadas.dart';
+import 'package:ejerciciosflutter/screens/contador.dart';
+import 'package:ejerciciosflutter/screens/helipuerto.dart';
 import 'package:ejerciciosflutter/screens/principal.dart';
 import 'package:ejerciciosflutter/screens/rowcolumns.dart';
 import 'package:flutter/material.dart';
@@ -93,19 +96,45 @@ class MyDrawer extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => const Rowcolumns()));
               },
             ),
-           /* ListTile(
-              leading: const Icon(Icons.rocket),
+           ListTile(
+              leading: const Icon(Icons.airplanemode_active),
               title: Text(
-                'Reto 1',
+                'Helipuerto',
                 style: GoogleFonts.aladin(
                   fontSize: 24,
                 ),
               ),
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const RetoUno()));
+                    MaterialPageRoute(builder: (context) => const Helipuerto()));
               },
-            ),*/
+            ),
+            ListTile(
+              leading: const Icon(Icons.night_shelter),
+              title: Text(
+                'Filas y Columnas Anidadas',
+                style: GoogleFonts.aladin(
+                  fontSize: 24,
+                ),
+              ),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const anidadas()));
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.lock_clock),
+              title: Text(
+                'Contador',
+                style: GoogleFonts.aladin(
+                  fontSize: 24,
+                ),
+              ),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const contador()));
+              },
+            ),
         ],
       ),
     );
