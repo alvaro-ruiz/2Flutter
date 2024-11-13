@@ -67,6 +67,7 @@ flutter:
     - assets/images/jerusalem.jpg
     - assets/images/satan.jpg
     - assets/images/torre.jpg
+    - assets/images/alvaro.jpg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

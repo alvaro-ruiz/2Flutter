@@ -34,6 +34,7 @@ class contadorState extends State<contador> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Contador de Clics'),

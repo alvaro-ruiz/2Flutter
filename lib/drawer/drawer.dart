@@ -1,6 +1,7 @@
 import 'package:ejerciciosflutter/screens/anidadas.dart';
 import 'package:ejerciciosflutter/screens/contador.dart';
 import 'package:ejerciciosflutter/screens/helipuerto.dart';
+import 'package:ejerciciosflutter/screens/intstagram.dart';
 import 'package:ejerciciosflutter/screens/principal.dart';
 import 'package:ejerciciosflutter/screens/rowcolumns.dart';
 import 'package:flutter/material.dart';
@@ -133,6 +134,19 @@ class MyDrawer extends StatelessWidget {
               onTap: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => const contador()));
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.camera_alt),
+              title: Text(
+                'Instagram',
+                style: GoogleFonts.aladin(
+                  fontSize: 24,
+                ),
+              ),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Instagram()));
               },
             ),
         ],
