@@ -1,15 +1,8 @@
-import 'package:ejerciciosflutter/screens/anidadas.dart';
-import 'package:ejerciciosflutter/screens/contador.dart';
-import 'package:ejerciciosflutter/screens/helipuerto.dart';
-import 'package:ejerciciosflutter/screens/intstagram.dart';
-import 'package:ejerciciosflutter/screens/principal.dart';
-import 'package:ejerciciosflutter/screens/rowcolumns.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -42,113 +35,95 @@ class MyDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-              leading: const Icon(Icons.photo),
-              title: Text(
-                'Fotos en Fila',
-                style: GoogleFonts.aladin(
-                  fontSize: 24,
-                ),
-              ),
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const RowImagesPage()));
-              },
+            leading: const Icon(Icons.photo),
+            title: Text(
+              'Fotos en Fila',
+              style: GoogleFonts.aladin(fontSize: 24),
             ),
-            ListTile(
-              leading: const Icon(Icons.photo_album),
-              title: Text(
-                'Fotos en Columna',
-                style: GoogleFonts.aladin(
-                  fontSize: 24,
-                ),
-              ),
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const ColumnImagesPage()));
-              },
+            onTap: () {
+              Navigator.pushNamed(context, '/row_images');
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.photo_album),
+            title: Text(
+              'Fotos en Columna',
+              style: GoogleFonts.aladin(fontSize: 24),
             ),
-            ListTile(
-              leading: const Icon(Icons.star),
-              title: Text(
-                '5 Iconos',
-                style: GoogleFonts.aladin(
-                  fontSize: 24,
-                ),
-              ),
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const IconPage()));
-              },
+            onTap: () {
+              Navigator.pushNamed(context, '/column_images');
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.star),
+            title: Text(
+              '5 Iconos',
+              style: GoogleFonts.aladin(fontSize: 24),
             ),
-             ListTile(
-              leading: const Icon(Icons.rocket),
-              title: Text(
-                'Row and Columns',
-                style: GoogleFonts.aladin(
-                  fontSize: 24,
-                ),
-              ),
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const Rowcolumns()));
-              },
+            onTap: () {
+              Navigator.pushNamed(context, '/icon_page');
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.rocket),
+            title: Text(
+              'Row and Columns',
+              style: GoogleFonts.aladin(fontSize: 24),
             ),
-           ListTile(
-              leading: const Icon(Icons.airplanemode_active),
-              title: Text(
-                'Helipuerto',
-                style: GoogleFonts.aladin(
-                  fontSize: 24,
-                ),
-              ),
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const Helipuerto()));
-              },
+            onTap: () {
+              Navigator.pushNamed(context, '/row_columns');
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.airplanemode_active),
+            title: Text(
+              'Helipuerto',
+              style: GoogleFonts.aladin(fontSize: 24),
             ),
-            ListTile(
-              leading: const Icon(Icons.night_shelter),
-              title: Text(
-                'Filas y Columnas Anidadas',
-                style: GoogleFonts.aladin(
-                  fontSize: 24,
-                ),
-              ),
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const anidadas()));
-              },
+            onTap: () {
+              Navigator.pushNamed(context, '/helipuerto');
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.night_shelter),
+            title: Text(
+              'Filas y Columnas Anidadas',
+              style: GoogleFonts.aladin(fontSize: 24),
             ),
-            ListTile(
-              leading: const Icon(Icons.lock_clock),
-              title: Text(
-                'Contador',
-                style: GoogleFonts.aladin(
-                  fontSize: 24,
-                ),
-              ),
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const contador()));
-              },
+            onTap: () {
+              Navigator.pushNamed(context, '/anidadas');
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.lock_clock),
+            title: Text(
+              'Contador',
+              style: GoogleFonts.aladin(fontSize: 24),
             ),
-            ListTile(
-              leading: const Icon(Icons.camera_alt),
-              title: Text(
-                'Instagram',
-                style: GoogleFonts.aladin(
-                  fontSize: 24,
-                ),
-              ),
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Instagram()));
-              },
+            onTap: () {
+              Navigator.pushNamed(context, '/contador');
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.camera_alt),
+            title: Text(
+              'Instagram',
+              style: GoogleFonts.aladin(fontSize: 24),
             ),
+            onTap: () {
+              Navigator.pushNamed(context, '/instagram');
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.games),
+            title: Text(
+              'Juego Icono',
+              style: GoogleFonts.aladin(fontSize: 24),
+            ),
+            onTap: () {
+              Navigator.pushNamed(context, '/juegoicono');
+            },
+          ),
         ],
       ),
     );

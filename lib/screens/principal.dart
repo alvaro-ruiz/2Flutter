@@ -1,25 +1,11 @@
-import 'package:ejerciciosflutter/drawer/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+import '../drawer/drawer.dart';
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Ejercicio 1',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(),
-    );
-  }
-}
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
+class Principal extends StatelessWidget {
+  const Principal({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +13,7 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Ejercicio 1'),
       ),
-      drawer: const MyDrawer(), // Usar el Drawer aquí
+      drawer: const MyDrawer(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Center(
