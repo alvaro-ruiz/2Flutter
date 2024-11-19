@@ -19,8 +19,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const Principal(),
-        '/row_images': (context) => const RowImagesPage(),
-        '/column_images': (context) => const ColumnImagesPage(),
+        '/row_images': (context) => const Imagenesfila(),
+        '/column_images': (context) => const Columnaimagenes(),
         '/icon_page': (context) => const IconPage(),
         '/row_columns': (context) => const Rowcolumns(),
         '/helipuerto': (context) => const Helipuerto(),
