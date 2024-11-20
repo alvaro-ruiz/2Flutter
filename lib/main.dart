@@ -1,5 +1,5 @@
+import './routes/approutes.dart';
 import 'package:flutter/material.dart';
-import 'screens/screens.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,20 +15,34 @@ class MyApp extends StatelessWidget {
       title: 'Mi Aplicación',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: Colors.grey[100],
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.blue,
+          foregroundColor: Colors.white,
+          titleTextStyle: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+        ),
+        textTheme: const TextTheme(
+          bodyMedium: TextStyle(fontSize: 16, color: Colors.black87),
+          titleLarge: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.blue,
+            foregroundColor: Colors.white,
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          ),
+        ),
+        floatingActionButtonTheme: const FloatingActionButtonThemeData(
+          backgroundColor: Colors.blue,
+          foregroundColor: Colors.white,
+        ),
+        iconTheme: const IconThemeData(color: Colors.blue),
       ),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const Principal(),
-        '/row_images': (context) => const Imagenesfila(),
-        '/column_images': (context) => const Columnaimagenes(),
-        '/icon_page': (context) => const IconPage(),
-        '/row_columns': (context) => const Rowcolumns(),
-        '/helipuerto': (context) => const Helipuerto(),
-        '/anidadas': (context) => const Anidadas(),
-        '/contador': (context) => const Contador(),
-        '/instagram': (context) => Instagram(),
-        '/juegoicono' : (context) => const JuegoIcono(),
-      },
+      routes: AppRoutes.routes,
     );
   }
 }

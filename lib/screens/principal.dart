@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-
 import '../drawer/drawer.dart';
-
 
 class Principal extends StatelessWidget {
   const Principal({super.key});
@@ -11,7 +8,10 @@ class Principal extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Ejercicio 1'),
+        title: Text(
+          'Ejercicio 1',
+          style: Theme.of(context).appBarTheme.titleTextStyle,
+        ),
       ),
       drawer: const MyDrawer(),
       body: Padding(
@@ -19,7 +19,7 @@ class Principal extends StatelessWidget {
         child: Center(
           child: Text(
             'Elige una opción',
-            style: GoogleFonts.aladin(fontSize: 24, fontWeight: FontWeight.bold),
+            style: Theme.of(context).textTheme.titleLarge,
           ),
         ),
       ),

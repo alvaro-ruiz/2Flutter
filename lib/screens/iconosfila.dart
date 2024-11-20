@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../drawer/drawer.dart';
 
 class IconPage extends StatelessWidget {
@@ -9,7 +8,10 @@ class IconPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('5 Iconos'),
+        title: Text(
+          '5 Iconos',
+          style: Theme.of(context).appBarTheme.titleTextStyle,
+        ),
       ),
       drawer: const MyDrawer(),
       body: const Row(

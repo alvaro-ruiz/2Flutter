@@ -8,7 +8,9 @@ class Columnaimagenes extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Fotos en Columna'),
+        title: const Text(
+          'Fotos en Columna',
+        ),
       ),
       drawer: const MyDrawer(),
       body: Column(

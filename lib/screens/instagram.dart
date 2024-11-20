@@ -2,9 +2,16 @@ import 'package:flutter/material.dart';
 
 import '../drawer/drawer.dart';
 
-class Instagram extends StatelessWidget {
-  
-  final List<String> images = [
+class Instagram extends StatefulWidget {
+  const Instagram({super.key});
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _InstagramState createState() => _InstagramState();
+}
+
+class _InstagramState extends State<Instagram> {
+  final List<String> images1 = [
     'assets/images/buffon.jpg',
     'assets/images/buffon.jpg',
     'assets/images/buffon.jpg',
@@ -14,6 +21,18 @@ class Instagram extends StatelessWidget {
     'assets/images/buffon.jpg',
     'assets/images/buffon.jpg',
     'assets/images/buffon.jpg',
+  ];
+
+  final List<String> images2 = [
+    'assets/images/alvaro.jpg',
+    'assets/images/alvaro.jpg',
+    'assets/images/alvaro.jpg',
+    'assets/images/alvaro.jpg',
+    'assets/images/alvaro.jpg',
+    'assets/images/alvaro.jpg',
+    'assets/images/alvaro.jpg',
+    'assets/images/alvaro.jpg',
+    'assets/images/alvaro.jpg',
   ];
 
   final List<String> imageUrls = [
@@ -30,11 +49,17 @@ class Instagram extends StatelessWidget {
     'Libros',
     'Viajes',
     'Amigos',
-    'Famila',
+    'Familia',
     'Coche',
   ];
 
-  Instagram({super.key});
+  List<String> currentImages = [];
+
+  @override
+  void initState() {
+    super.initState();
+    currentImages = images1; // Inicializa el grid con las primeras imágenes
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -101,49 +126,38 @@ class Instagram extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 8),
-
+          // Sección de los círculos
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: SizedBox(
-              height:
-                  100, // Ajusta la altura para que se acomode el círculo y el texto
+              height: 100,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: 6, // Número de círculos
+                itemCount: texts.length,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 8.0), // Espaciado entre círculos
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment
-                          .center, // Centra los elementos dentro de la columna
                       children: [
                         CircleAvatar(
-                          radius: 25, // Ajusta el tamaño de los círculos aquí
-                          backgroundColor:
-                              Colors.white, // Color de fondo del círculo
+                          radius: 25,
+                          backgroundColor: Colors.white,
                           child: index == 0
                               ? const Icon(Icons.add,
                                   size: 30, color: Colors.black)
                               : ClipOval(
-                                  // Muestra imagen en los círculos
                                   child: Image.asset(
-                                    imageUrls[
-                                        index], // Asignamos la URL de la imagen correspondiente
-                                    width: 50, // Tamaño de la imagen
+                                    imageUrls[index],
+                                    width: 50,
                                     height: 50,
-                                    fit: BoxFit
-                                        .cover, // Ajusta la imagen al círculo
+                                    fit: BoxFit.cover,
                                   ),
                                 ),
                         ),
-                        const SizedBox(
-                            height: 8), // Espacio entre el círculo y el texto
+                        const SizedBox(height: 8),
                         Text(
-                          texts[
-                              index], // Asignamos el texto correspondiente a cada círculo
-                          style: const TextStyle(
-                              fontSize: 12), // Tamaño y estilo del texto
+                          texts[index],
+                          style: const TextStyle(fontSize: 12),
                         ),
                       ],
                     ),
@@ -152,13 +166,16 @@ class Instagram extends StatelessWidget {
               ),
             ),
           ),
-
           const SizedBox(height: 8),
           Row(
             children: [
               Expanded(
                 child: OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    setState(() {
+                      currentImages = images1;
+                    });
+                  },
                   style: OutlinedButton.styleFrom(
                     side: const BorderSide(color: Colors.grey),
                     minimumSize: const Size(double.infinity, 40),
@@ -171,7 +188,11 @@ class Instagram extends StatelessWidget {
               ),
               Expanded(
                 child: OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    setState(() {
+                      currentImages = images2;
+                    });
+                  },
                   style: OutlinedButton.styleFrom(
                     side: const BorderSide(color: Colors.grey),
                     minimumSize: const Size(double.infinity, 40),
@@ -190,16 +211,13 @@ class Instagram extends StatelessWidget {
             child: GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3),
-              itemCount: images.length,
+              itemCount: currentImages.length,
               itemBuilder: (context, index) => Container(
                 margin: const EdgeInsets.all(2),
-                child: Image.asset(images[index],
-                    fit: BoxFit.cover),
+                child: Image.asset(currentImages[index], fit: BoxFit.cover),
               ),
             ),
           ),
-
-          // Iconos debajo del grid
           const Padding(
             padding: EdgeInsets.symmetric(vertical: 8.0),
             child: Row(

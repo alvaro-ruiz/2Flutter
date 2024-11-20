@@ -75,7 +75,7 @@ class Anidadas extends StatelessWidget {
                   const Text('"El camino a Jerusalén" \n Gustave Doré'),
                 ],
               ),
-              const SizedBox(width: 20),
+              const SizedBox(width: 10),
               Column(
                 children: [
                   Image.network(
@@ -86,7 +86,7 @@ class Anidadas extends StatelessWidget {
                   const Text('"Paraiso Perdido" \n Gustave Doré'),
                 ],
               ),
-              const SizedBox(width: 20),
+              const SizedBox(width: 10),
               Column(
                 children: [
                   Image.network(
