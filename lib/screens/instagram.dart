@@ -35,15 +35,6 @@ class _InstagramState extends State<Instagram> {
     'assets/images/alvaro.jpg',
   ];
 
-  final List<String> imageUrls = [
-    'assets/images/buffon.jpg',
-    'assets/images/alvaro.jpg',
-    'assets/images/buffon.jpg',
-    'assets/images/alvaro.jpg',
-    'assets/images/buffon.jpg',
-    'assets/images/alvaro.jpg',
-  ];
-
   final List<String> texts = [
     'Nuevo',
     'Libros',
@@ -58,7 +49,27 @@ class _InstagramState extends State<Instagram> {
   @override
   void initState() {
     super.initState();
-    currentImages = images1; // Inicializa el grid con las primeras imágenes
+    currentImages = images1;
+  }
+
+  void _showFeatureUnavailableDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Funcionalidad no disponible'),
+          content: const Text('Esta funcionalidad estará disponible en futuras actualizaciones.'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('Cerrar'),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -126,7 +137,6 @@ class _InstagramState extends State<Instagram> {
             ),
           ),
           const SizedBox(height: 8),
-          // Sección de los círculos
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: SizedBox(
@@ -147,7 +157,7 @@ class _InstagramState extends State<Instagram> {
                                   size: 30, color: Colors.black)
                               : ClipOval(
                                   child: Image.asset(
-                                    imageUrls[index],
+                                    'assets/images/buffon.jpg',
                                     width: 50,
                                     height: 50,
                                     fit: BoxFit.cover,
@@ -218,16 +228,31 @@ class _InstagramState extends State<Instagram> {
               ),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 8.0),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Icon(Icons.home, size: 30),
-                Icon(Icons.search, size: 30),
-                Icon(Icons.add_box_outlined, size: 30),
-                Icon(Icons.favorite, size: 30),
-                Icon(Icons.account_circle, size: 30),
+                IconButton(
+                  icon: const Icon(Icons.home, size: 30),
+                  onPressed: _showFeatureUnavailableDialog,
+                ),
+                IconButton(
+                  icon: const Icon(Icons.search, size: 30),
+                  onPressed: _showFeatureUnavailableDialog,
+                ),
+                IconButton(
+                  icon: const Icon(Icons.add_box_outlined, size: 30),
+                  onPressed: _showFeatureUnavailableDialog,
+                ),
+                IconButton(
+                  icon: const Icon(Icons.favorite, size: 30),
+                  onPressed: _showFeatureUnavailableDialog,
+                ),
+                IconButton(
+                  icon: const Icon(Icons.account_circle, size: 30),
+                  onPressed: _showFeatureUnavailableDialog,
+                ),
               ],
             ),
           ),

@@ -12,6 +12,6 @@ class AppRoutes {
     '/anidadas': (context) => const Anidadas(),
     '/contador': (context) => const Contador(),
     '/instagram': (context) => const Instagram(),
-    '/juegoicono': (context) => const JuegoIcono(),
+    '/juegofoto': (context) => const JuegoFoto(),
   };
 }

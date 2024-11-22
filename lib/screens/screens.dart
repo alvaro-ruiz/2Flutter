@@ -4,7 +4,7 @@ export './instagram.dart';
 export './principal.dart';
 export './contador.dart';
 export './rowcolumns.dart';
-export './juegoicono.dart';
+export 'juegofoto.dart';
 export './filaimagenes.dart';
 export './columnaimagenes.dart';
 export './iconosfila.dart';

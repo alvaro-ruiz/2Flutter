@@ -121,7 +121,7 @@ class MyDrawer extends StatelessWidget {
               style: GoogleFonts.aladin(fontSize: 24),
             ),
             onTap: () {
-              Navigator.pushNamed(context, '/juegoicono');
+              Navigator.pushNamed(context, '/juegofoto');
             },
           ),
         ],
