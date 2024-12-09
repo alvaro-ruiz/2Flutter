@@ -1,3 +1,4 @@
+import 'package:ejerciciosflutter/screens/from.dart';
 import 'package:flutter/material.dart';
 import '../screens/screens.dart';
 
@@ -13,5 +14,6 @@ class AppRoutes {
     '/contador': (context) => const Contador(),
     '/instagram': (context) => const Instagram(),
     '/juegofoto': (context) => const JuegoFoto(),
+    '/formulario' : (context) => const Formulario(),
   };
 }

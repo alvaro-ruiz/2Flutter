@@ -124,6 +124,16 @@ class MyDrawer extends StatelessWidget {
               Navigator.pushNamed(context, '/juegofoto');
             },
           ),
+          ListTile(
+            leading: const Icon(Icons.edit_document),
+            title: Text(
+              'Formulario',
+              style: GoogleFonts.aladin(fontSize: 24),
+            ),
+            onTap: () {
+              Navigator.pushNamed(context, '/formulario');
+            },
+          ),
         ],
       ),
     );
