@@ -1,3 +1,4 @@
+import 'package:ejerciciosflutter/screens/adivinanumero.dart';
 import 'package:ejerciciosflutter/screens/from.dart';
 import 'package:flutter/material.dart';
 import '../screens/screens.dart';
@@ -15,5 +16,6 @@ class AppRoutes {
     '/instagram': (context) => const Instagram(),
     '/juegofoto': (context) => const JuegoFoto(),
     '/formulario' : (context) => const Formulario(),
+    '/anumero' : (context) => const AdivinaNumeroScreen()
   };
 }

@@ -134,6 +134,16 @@ class MyDrawer extends StatelessWidget {
               Navigator.pushNamed(context, '/formulario');
             },
           ),
+          ListTile(
+            leading: const Icon(Icons.edit_document),
+            title: Text(
+              'Adivina numero',
+              style: GoogleFonts.aladin(fontSize: 24),
+            ),
+            onTap: () {
+              Navigator.pushNamed(context, '/anumero');
+            },
+          ),
         ],
       ),
     );
