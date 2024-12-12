@@ -1,5 +1,7 @@
 import 'package:ejerciciosflutter/screens/adivinanumero.dart';
+import 'package:ejerciciosflutter/screens/formularionodual.dart';
 import 'package:ejerciciosflutter/screens/from.dart';
+import 'package:ejerciciosflutter/screens/game_screen.dart';
 import 'package:flutter/material.dart';
 import '../screens/screens.dart';
 
@@ -15,7 +17,9 @@ class AppRoutes {
     '/contador': (context) => const Contador(),
     '/instagram': (context) => const Instagram(),
     '/juegofoto': (context) => const JuegoFoto(),
+    '/juegosiete': (context) => const GameScreen(),
     '/formulario' : (context) => const Formulario(),
-    '/anumero' : (context) => const AdivinaNumeroScreen()
+    '/anumero' : (context) => const AdivinaNumeroScreen(),
+    '/formnodual' : (context) => FormularioSwitchScreen(),
   };
 }

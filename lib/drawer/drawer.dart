@@ -125,6 +125,16 @@ class MyDrawer extends StatelessWidget {
             },
           ),
           ListTile(
+            leading: const Icon(Icons.crop_portrait_rounded),
+            title: Text(
+              'Siete y media',
+              style: GoogleFonts.aladin(fontSize: 24),
+            ),
+            onTap: () {
+              Navigator.pushNamed(context, '/juegosiete');
+            },
+          ),
+          ListTile(
             leading: const Icon(Icons.edit_document),
             title: Text(
               'Formulario',
@@ -142,6 +152,16 @@ class MyDrawer extends StatelessWidget {
             ),
             onTap: () {
               Navigator.pushNamed(context, '/anumero');
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.edit_document),
+            title: Text(
+              'Fromulario Swich',
+              style: GoogleFonts.aladin(fontSize: 24),
+            ),
+            onTap: () {
+              Navigator.pushNamed(context, '/formnodual');
             },
           ),
         ],
