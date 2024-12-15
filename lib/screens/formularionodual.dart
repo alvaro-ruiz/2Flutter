@@ -23,6 +23,15 @@ class _FormularioSwitchScreenState extends State<FormularioSwitchScreen> {
   TextEditingController(text: '0'),
   ];
 
+  DateTime? _fechaNacimiento;
+  // ignore: unused_field
+  String? _ciudadSeleccionada;
+  final List<String> _ciudades = ['Sevilla', 'Málaga', 'Granada', 'Córdoba', 'Huelva', 'Almería', 'Jaén', 'Cádiz'];
+  // ignore: prefer_final_fields
+  List<String> _aficionesSeleccionadas = [];
+  final List<String> _aficiones = ['Deporte', 'Lectura', 'Música', 'Cine', 'Viajar'];
+  String? _sexoSeleccionado;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -131,11 +140,128 @@ class _FormularioSwitchScreenState extends State<FormularioSwitchScreen> {
     );
   }
 
-  Widget _buildFormularioDerecha() {
-    return const Column(
+   Widget _buildFormularioDerecha() {
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Formulario derecho en construcción...'),
+        _buildFechaNacimiento(),
+        const SizedBox(height: 16),
+        _buildDropdownCiudad(),
+        const SizedBox(height: 16),
+        _buildAficionesCheckbox(),
+        const SizedBox(height: 16),
+        _buildRadioSexo(),
+      ],
+    );
+  }
+
+  Widget _buildFechaNacimiento() {
+    return TextFormField(
+      readOnly: true,
+      decoration: InputDecoration(
+        labelText: 'Fecha de nacimiento',
+        border: const OutlineInputBorder(),
+        suffixIcon: IconButton(
+          icon: const Icon(Icons.calendar_today),
+          onPressed: () async {
+            DateTime? fechaSeleccionada = await showDatePicker(
+              context: context,
+              initialDate: DateTime.now(),
+              firstDate: DateTime(1900),
+              lastDate: DateTime.now(),
+            );
+            if (fechaSeleccionada != null) {
+              setState(() {
+                _fechaNacimiento = fechaSeleccionada;
+              });
+            }
+          },
+        ),
+      ),
+      controller: TextEditingController(
+        text: _fechaNacimiento != null ? 
+              '${_fechaNacimiento!.day}/${_fechaNacimiento!.month}/${_fechaNacimiento!.year}' : 
+              '',
+      ),
+      validator: (value) => _fechaNacimiento == null ? 'Seleccione una fecha de nacimiento' : null,
+    );
+  }
+
+  Widget _buildDropdownCiudad() {
+    return DropdownButtonFormField<String>(
+      decoration: const InputDecoration(
+        labelText: 'Ciudad de Andalucía',
+        border: OutlineInputBorder(),
+      ),
+      items: _ciudades.map((ciudad) {
+        return DropdownMenuItem<String>(
+          value: ciudad,
+          child: Text(ciudad),
+        );
+      }).toList(),
+      onChanged: (value) {
+        setState(() {
+          _ciudadSeleccionada = value;
+        });
+      },
+    );
+  }
+
+  Widget _buildAficionesCheckbox() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: _aficiones.map((aficion) {
+        return CheckboxListTile(
+          title: Text(aficion),
+          value: _aficionesSeleccionadas.contains(aficion),
+          onChanged: (bool? valor) {
+            setState(() {
+              if (valor == true) {
+                _aficionesSeleccionadas.add(aficion);
+              } else {
+                _aficionesSeleccionadas.remove(aficion);
+              }
+            });
+          },
+        );
+      }).toList(),
+    );
+  }
+
+  Widget _buildRadioSexo() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        RadioListTile<String>(
+          title: const Text('Hombre'),
+          value: 'Hombre',
+          groupValue: _sexoSeleccionado,
+          onChanged: (value) {
+            setState(() {
+              _sexoSeleccionado = value;
+            });
+          },
+        ),
+        RadioListTile<String>(
+          title: const Text('Mujer'),
+          value: 'Mujer',
+          groupValue: _sexoSeleccionado,
+          onChanged: (value) {
+            setState(() {
+              _sexoSeleccionado = value;
+            });
+          },
+        ),
+        RadioListTile<String>(
+          title: const Text('Otro'),
+          value: 'Otro',
+          groupValue: _sexoSeleccionado,
+          onChanged: (value) {
+            setState(() {
+              _sexoSeleccionado = value;
+            });
+          },
+        ),
       ],
     );
   }
