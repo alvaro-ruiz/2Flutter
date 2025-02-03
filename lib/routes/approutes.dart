@@ -20,6 +20,6 @@ class AppRoutes {
     '/juegosiete': (context) => const GameScreen(),
     '/formulario' : (context) => const Formulario(),
     '/anumero' : (context) => const AdivinaNumeroScreen(),
-    '/formnodual' : (context) => FormularioSwitchScreen(),
+    '/formnodual' : (context) => const FormularioSwitchScreen(),
   };
 }

@@ -28,6 +28,7 @@ class _RandomPhotoGameState extends State<RandomPhotoGame> {
   late Timer _timer;
   int _timeLeft = 5;
   bool _gameOver = false;
+  late String _currentPhoto;
 
   final List<String> _photos = [
     'assets/images/buffon.jpg',
@@ -46,6 +47,7 @@ class _RandomPhotoGameState extends State<RandomPhotoGame> {
       _gameOver = false;
       _isPhotoVisible = true;
       _timeLeft = 5;
+      _currentPhoto = _photos[Random().nextInt(_photos.length)];
     });
 
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
@@ -56,6 +58,7 @@ class _RandomPhotoGameState extends State<RandomPhotoGame> {
           _isPhotoVisible = false;
           _score -= 2;
           _generateRandomPosition();
+          _currentPhoto = _photos[Random().nextInt(_photos.length)];
           _timeLeft = 5;
           _isPhotoVisible = true;
         }
@@ -67,8 +70,8 @@ class _RandomPhotoGameState extends State<RandomPhotoGame> {
 
   void _generateRandomPosition() {
     final random = Random();
-    _photoX = random.nextDouble() * 0.8;
-    _photoY = random.nextDouble() * 0.8;
+    _photoX = random.nextDouble() * 0.6;
+    _photoY = random.nextDouble() * 0.5;
   }
 
   void _onPhotoPressed() {
@@ -145,7 +148,7 @@ class _RandomPhotoGameState extends State<RandomPhotoGame> {
                               opacity: _isPhotoVisible ? 1.0 : 0.0,
                               duration: const Duration(milliseconds: 300),
                               child: Image.asset(
-                                _photos[Random().nextInt(_photos.length)],
+                                _currentPhoto, // Uso de la foto fija almacenada
                                 width: 60,
                                 height: 60,
                                 fit: BoxFit.cover,

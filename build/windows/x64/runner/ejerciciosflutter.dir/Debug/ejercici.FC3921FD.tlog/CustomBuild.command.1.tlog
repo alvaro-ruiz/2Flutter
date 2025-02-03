@@ -1,0 +1,10 @@
+^C:\USERS\ALVARO\DESKTOP\NUEVA CARPETA (2)\2FLUTTER\WINDOWS\RUNNER\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" "-SC:/Users/Alvaro/Desktop/Nueva carpeta (2)/2Flutter/windows" "-BC:/Users/Alvaro/Desktop/Nueva carpeta (2)/2Flutter/build/windows/x64" --check-stamp-file "C:/Users/Alvaro/Desktop/Nueva carpeta (2)/2Flutter/build/windows/x64/runner/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
